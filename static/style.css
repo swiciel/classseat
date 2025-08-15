@@ -1,0 +1,130 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+#container {
+    display: flex;
+    gap: 30px;
+}
+
+/* 교실 영역 */
+#classroom {
+    border: 1px solid #333;
+    padding: 10px;
+    width: 400px;
+    height: 400px;
+    position: relative;
+    background-color: #fff;
+    user-select: none;
+}
+
+/* 좌석(원) 스타일 */
+.seat {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    position: absolute;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    font-weight: bold;
+    user-select: none;
+    transition: background-color 0.3s;
+}
+
+.seat.assigned {
+    background-color: #a2d5f2;
+    border-color: #0077cc;
+}
+
+.seat:hover {
+    background-color: #d0e7f9;
+}
+
+/* 버튼 그룹 */
+#buttons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* 경고 문구 */
+#warning {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+/* 숫자 입력 영역 */
+#input-area {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#input-area label {
+    font-weight: bold;
+}
+
+input[type="number"], input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* loading 이미지 */
+#loading {
+    display: none;
+    margin-top: 15px;
+    width: 200px;
+}
+
+/* 저장된 배치들 영역 */
+#saved-layouts {
+    max-width: 250px;
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #aaa;
+    padding: 10px;
+}
+
+.saved-layout {
+    border: 1px solid #999;
+    margin-bottom: 10px;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: #f9f9f9;
+}
+
+/* 작은 좌석 원 */
+.saved-layout .seat {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    border-width: 1px;
+}
+
+/* 경고문 위치 */
+#warning-area {
+    height: 24px;
+    margin-bottom: 5px;
+    text-align: center;
+    font-weight: bold;
+    color: red;
+}

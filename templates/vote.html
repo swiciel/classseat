@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>자리 배치 투표</title>
+  <style>
+    .layout-preview {
+      display: inline-block;
+      margin: 10px;
+      border: 1px solid #ccc;
+      position: relative;
+      width: 200px;
+      height: 200px;
+      background: #f9f9f9;
+    }
+
+    .seat {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #3498db;
+      color: #fff;
+      font-size: 10px;
+      text-align: center;
+      line-height: 20px;
+    }
+
+    .vote-btn {
+      margin-top: 5px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h1>자리 배치 투표</h1>
+
+  {% if layouts %}
+    <div>
+      {% for layout in layouts %}
+        <div style="display: inline-block; text-align: center;">
+          <div class="layout-preview">
+            {% set original_width = 800 %}
+            {% set original_height = 600 %}
+            {% set preview_width = 200 %}
+            {% set preview_height = 200 %}
+            {% set scale_x = preview_width / original_width %}
+            {% set scale_y = preview_height / original_height %}
+
+            {% for seat in layout.seats %}
+              <div class="seat"
+                   style="
+                     left: {{ seat.x * scale_x - 10 }}px;
+                     top: {{ seat.y * scale_y - 10 }}px;
+                   ">
+                {{ seat.number }}
+              </div>
+            {% endfor %}
+          </div>
+
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>현재 저장된 자리 배치가 없습니다.</p>
+  {% endif %}
+</body>
+</html>
