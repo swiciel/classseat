@@ -203,7 +203,7 @@ function addSavedLayout(data) {
     seat.style.left = (s.x * scaleX - 10) + 'px';
     seat.style.top = (s.y * scaleY - 10) + 'px';
 
-    // 크기도 축소 (기본 원 반지름 20px이니까 줄이자)
+    // 크기도 축소
     seat.style.width = '20px';
     seat.style.height = '20px';
     seat.style.fontSize = '10px';
